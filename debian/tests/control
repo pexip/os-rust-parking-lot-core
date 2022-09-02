@@ -1,0 +1,34 @@
+Test-Command: /usr/share/cargo/bin/cargo-auto-test parking_lot_core 0.9.3 --all-targets --all-features
+Features: test-name=rust-parking-lot-core:@
+Depends: dh-cargo (>= 18), @
+Restrictions: allow-stderr, skip-not-installable, flaky
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test parking_lot_core 0.9.3 --all-targets 
+Features: test-name=librust-parking-lot-core-dev:default
+Depends: dh-cargo (>= 18), @
+Restrictions: allow-stderr, skip-not-installable
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test parking_lot_core 0.9.3 --all-targets --no-default-features --features nightly
+Features: test-name=librust-parking-lot-core-dev:nightly
+Depends: dh-cargo (>= 18), @
+Restrictions: allow-stderr, skip-not-installable
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test parking_lot_core 0.9.3 --all-targets --no-default-features
+Features: test-name=librust-parking-lot-core-dev:
+Depends: dh-cargo (>= 18), @
+Restrictions: allow-stderr, skip-not-installable
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test parking_lot_core 0.9.3 --all-targets --no-default-features --features deadlock_detection
+Features: test-name=librust-parking-lot-core+deadlock-detection-dev:deadlock_detection
+Depends: dh-cargo (>= 18), @
+Restrictions: allow-stderr, skip-not-installable, flaky
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test parking_lot_core 0.9.3 --all-targets --no-default-features --features petgraph
+Features: test-name=librust-parking-lot-core+petgraph-dev:petgraph
+Depends: dh-cargo (>= 18), @
+Restrictions: allow-stderr, skip-not-installable
+
+Test-Command: /usr/share/cargo/bin/cargo-auto-test parking_lot_core 0.9.3 --all-targets --no-default-features --features thread-id
+Features: test-name=librust-parking-lot-core+thread-id-dev:thread-id
+Depends: dh-cargo (>= 18), @
+Restrictions: allow-stderr, skip-not-installable

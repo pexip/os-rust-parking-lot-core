@@ -1,0 +1,95 @@
+Source: rust-parking-lot-core
+Section: rust
+Priority: optional
+Build-Depends: debhelper (>= 12),
+ dh-cargo (>= 25),
+ cargo:native <!nocheck>,
+ rustc:native <!nocheck>,
+ libstd-rust-dev <!nocheck>,
+ librust-cfg-if-1+default-dev <!nocheck>,
+ librust-libc-0.2+default-dev (>= 0.2.95-~~) <!nocheck>,
+ librust-smallvec-1+default-dev (>= 1.6.1-~~) <!nocheck>
+Maintainer: Debian Rust Maintainers <pkg-rust-maintainers@alioth-lists.debian.net>
+Uploaders:
+ Sylvestre Ledru <sylvestre@debian.org>,
+ Wolfgang Silbermayr <wolfgang@silbermayr.at>
+Standards-Version: 4.5.1
+Vcs-Git: https://salsa.debian.org/rust-team/debcargo-conf.git [src/parking-lot-core]
+Vcs-Browser: https://salsa.debian.org/rust-team/debcargo-conf/tree/master/src/parking-lot-core
+X-Cargo-Crate: parking_lot_core
+Rules-Requires-Root: no
+
+Package: librust-parking-lot-core-dev
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${misc:Depends},
+ librust-cfg-if-1+default-dev,
+ librust-libc-0.2+default-dev (>= 0.2.95-~~),
+ librust-smallvec-1+default-dev (>= 1.6.1-~~)
+Suggests:
+ librust-parking-lot-core+deadlock-detection-dev (= ${binary:Version}),
+ librust-parking-lot-core+petgraph-dev (= ${binary:Version}),
+ librust-parking-lot-core+thread-id-dev (= ${binary:Version})
+Provides:
+ librust-parking-lot-core+default-dev (= ${binary:Version}),
+ librust-parking-lot-core+nightly-dev (= ${binary:Version}),
+ librust-parking-lot-core-0-dev (= ${binary:Version}),
+ librust-parking-lot-core-0+default-dev (= ${binary:Version}),
+ librust-parking-lot-core-0+nightly-dev (= ${binary:Version}),
+ librust-parking-lot-core-0.9-dev (= ${binary:Version}),
+ librust-parking-lot-core-0.9+default-dev (= ${binary:Version}),
+ librust-parking-lot-core-0.9+nightly-dev (= ${binary:Version}),
+ librust-parking-lot-core-0.9.3-dev (= ${binary:Version}),
+ librust-parking-lot-core-0.9.3+default-dev (= ${binary:Version}),
+ librust-parking-lot-core-0.9.3+nightly-dev (= ${binary:Version})
+Description: API for creating synchronization primitives - Rust source code
+ This package contains the source for the Rust parking_lot_core crate, packaged
+ by debcargo for use with cargo and dh-cargo.
+
+Package: librust-parking-lot-core+deadlock-detection-dev
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${misc:Depends},
+ librust-parking-lot-core-dev (= ${binary:Version}),
+ librust-parking-lot-core+petgraph-dev (= ${binary:Version}),
+ librust-parking-lot-core+thread-id-dev (= ${binary:Version})
+Provides:
+ librust-parking-lot-core-0+deadlock-detection-dev (= ${binary:Version}),
+ librust-parking-lot-core-0.9+deadlock-detection-dev (= ${binary:Version}),
+ librust-parking-lot-core-0.9.3+deadlock-detection-dev (= ${binary:Version})
+Description: API for creating synchronization primitives - feature "deadlock_detection"
+ This metapackage enables feature "deadlock_detection" for the Rust
+ parking_lot_core crate, by pulling in any additional dependencies needed by
+ that feature.
+
+Package: librust-parking-lot-core+petgraph-dev
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${misc:Depends},
+ librust-parking-lot-core-dev (= ${binary:Version}),
+ librust-petgraph-0.6+default-dev
+Provides:
+ librust-parking-lot-core-0+petgraph-dev (= ${binary:Version}),
+ librust-parking-lot-core-0.9+petgraph-dev (= ${binary:Version}),
+ librust-parking-lot-core-0.9.3+petgraph-dev (= ${binary:Version})
+Description: API for creating synchronization primitives - feature "petgraph"
+ This metapackage enables feature "petgraph" for the Rust parking_lot_core
+ crate, by pulling in any additional dependencies needed by that feature.
+
+Package: librust-parking-lot-core+thread-id-dev
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${misc:Depends},
+ librust-parking-lot-core-dev (= ${binary:Version}),
+ librust-thread-id-4+default-dev
+Provides:
+ librust-parking-lot-core-0+thread-id-dev (= ${binary:Version}),
+ librust-parking-lot-core-0.9+thread-id-dev (= ${binary:Version}),
+ librust-parking-lot-core-0.9.3+thread-id-dev (= ${binary:Version})
+Description: API for creating synchronization primitives - feature "thread-id"
+ This metapackage enables feature "thread-id" for the Rust parking_lot_core
+ crate, by pulling in any additional dependencies needed by that feature.
