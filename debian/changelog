@@ -1,3 +1,9 @@
+rust-parking-lot-core (0.9.3-1pexip2) pexip-bookworm; urgency=medium
+
+  * Initial bookworm build
+
+ -- Mark Hymers <mark.hymers@pexip.com>  Thu, 16 Nov 2023 10:31:00 +0000
+
 rust-parking-lot-core (0.9.3-1pexip1) pexip; urgency=medium
 
   * Prepare Pexip packaging
